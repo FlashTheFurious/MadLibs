@@ -10,7 +10,7 @@ const levels = {
 
 function loadGame(level) {
   const levelData = levels[level];
-  const container = document.getElementById("game");
+  const container = document.querySelector("#game");
   container.innerHTML = ""; // Clear previous content
 
   // Create input fields for each blank
@@ -27,12 +27,12 @@ function generateStory() {
   let sentence = levelData.sentence;
 
   levelData.blanks.forEach((blank, index) => {
-    const input = document.getElementById(`input${index}`);
+    const input = document.querySelector(`#input${index}`);
     sentence = sentence.replace("[blank]", input.value);
   });
 
   // Display the generated story in the #story div instead of an alert
-  const storyContainer = document.getElementById("story");
+  const storyContainer = document.querySelector("#story");
   storyContainer.innerText = sentence;
 }
 
